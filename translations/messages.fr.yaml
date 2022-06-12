@@ -1,0 +1,23 @@
+flashes:
+  success: 'Votre message à bien été envoyé, merci.'
+  alert: 'Un problème est survenu, veuillez réessayer'
+form:
+  contact:
+    placeholder:
+      name: 'votre nom, prénom'
+      email: 'Votre email'
+      subject: 'Sujet'
+      message: 'Votre demande'
+  registration:
+    placeholder:
+      email: 'Votre email'
+      email2: 'Confirmez votre email'
+      password: 'Votre mot de passe'
+      password2: 'Répeter le mot de passe'
+    error:
+      email:
+        invalid: 'Les emails doivent êtres valides'
+        blank: 'Merci de renseigner un email'
+      password:
+        invalid:  'Les mots de passe doivent être les mêmes.'
+        blank: 'Merci de renseigner un mot de passe'

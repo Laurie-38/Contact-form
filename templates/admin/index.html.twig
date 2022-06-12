@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-8 text-center">
+            <h1>Etat des demandes</h1>
+        </div>
+    </div>
+    <table class="table able-success table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Message</th>
+            <th scope="col">Etat</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for requester in requesters %}
+
+            {% for message in requester.message %}
+                <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ requester.email }}</td>
+                <td>{{ message.subject }}</td>
+                <td>{{ message.body }}</td>
+                {% if (message.isProcessed is defined and message.isProcessed == true) %}
+                    <td><p class="text-success">Traité</p></td>
+                {% else %}
+                    <td><p class="text-danger">à traiter</p></td>
+                    <td>
+                        <a type="button" href="{{ path('admin_processed', {'id': message.id}) }}"
+                           class="btn btn-sm btn-primary">marquer comme traité</a>
+                    </td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

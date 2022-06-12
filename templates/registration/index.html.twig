@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center align-items-center text-center mt-5">
+        <div class="col-md-8">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                <h1>Créer un compte</h1>
+
+                {{ form_start(form) }}
+                </div>
+
+                <div class="col-md-5 m-1">
+                    {{ form_row(form.email, {'label':false}) }}
+                </div>
+
+                <div class="col-md-5 m-1">
+                    {{ form_row(form.password, {'label':false}) }}
+                </div>
+
+                <div class="col-md-12 py-3">
+                    <button type="submit" class="btn btn-success">Créer un compte</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
